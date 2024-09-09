@@ -1,3 +1,4 @@
 import InputComp from "./input/input";
+import Button from "./button/button";
 
-export default InputComp
+export {InputComp,Button};
