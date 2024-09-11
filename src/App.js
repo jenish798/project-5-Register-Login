@@ -1,9 +1,21 @@
+import {useState,useEffect} from 'react';
+import { auth } from './firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Register,ForgotPassword,Ecommerce,Login} from './pages';
 import './App.css';
-import Register from './pages';
 
 function App() {
+
   return (
-    <Register/>
+    <Router>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/ecommerce" element={<Ecommerce />} />
+    </Routes>
+  </Router>
     
   );
 }
