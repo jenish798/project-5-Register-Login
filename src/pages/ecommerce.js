@@ -1,9 +1,9 @@
 import React from 'react';
 import { signOut } from 'firebase/auth';
-import { auth } from '../firebase';
+import { auth } from '../firebase/firebase';
 import { useNavigate } from 'react-router-dom';
 import String from '../utils';
-import '../css/product.css'
+import '../css/product.css';
 
 const Ecommerce = () =>{
   const {logout,productheading}= String

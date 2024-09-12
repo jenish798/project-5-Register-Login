@@ -1,8 +1,8 @@
 
-const Button = (onClick)=>{
+const Button = ({onClick,type,children})=>{
     return(
 <>
-<button onClick={onClick}>Login</button>
+<button type={type} onClick={onClick}>{children}</button>
 </>
     )
 }

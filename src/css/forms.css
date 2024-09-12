@@ -1,32 +1,82 @@
-.auth{
-  width: 90%;
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.auth {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
   max-width: 400px;
-  border: 1px solid #dcdcdc;
-  padding: 20px;
+}
+
+.auth h1 {
+  font-size: 24px;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
-.auth form{
+.auth form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin: 0 auto 10px auto;
 }
 
-.auth__success{
-  padding: 10px 0;
-  background-color: hsl(147, 79%, 87%);
-  margin-bottom: 20px;
+.auth .input-comp {
+  margin-bottom: 1rem;
 }
 
-.auth__error{
-  padding: 10px 0;
-  background-color: hsl(0, 79%, 87%);
-  margin-bottom: 20px;
+.auth label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
-.auth form > input, button{
-  height: 40px;
+.auth .input-comp {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.auth button {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   font-size: 16px;
-  padding: 0 10px;
+  margin-top: 1rem;
+}
+
+.auth button:hover {
+  background-color: #0056b3;
+}
+
+.auth p {
+  color: red;
+  font-size: 14px;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.auth span {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.auth span a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth span a:hover {
+  text-decoration: underline;
 }

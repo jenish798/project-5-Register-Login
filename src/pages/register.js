@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { auth } from "../firebase/firebase";
+import {useHistory, Link, useNavigate} from 'react-router-dom'
 import { InputComp, Button } from "../components/index";
 import String from "../utils";
-import "../forms.css";
+import "../css/forms.css";
 
 const Register = (name) => {
   const {
@@ -12,50 +13,44 @@ const Register = (name) => {
     emailplaceholder,
     passwordlabel,
     passwordplaceholder,
+    register,
+    account,
     login,
-    confirmpasswordlabel,
-    confirmpasswordplaceholder,
   } = String;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+const auth = getAuth();
 
-  const validatePassword = () => {
-    let isValid = true;
-    if (password !== "" && confirmPassword !== "") {
-      if (password !== confirmPassword) {
-        isValid = false;
-        setError("Passwords does not match");
-      }
-    }
-    return isValid;
-  };
-
-  const register = (e) => {
+  const handleRegister = async (e)=>{
     e.preventDefault();
-    setError("");
-    if (validatePassword()) {
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((res) => {
-          console.log(res.user);
-        })
-        .catch((err) => setError(err.message));
+    if(email ===''|| password ===''){
+      setError('please enter both email and password.');
+      return;
     }
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+    try{
+      await createUserWithEmailAndPassword(auth, email, password)
+      .then((usercredential)=>{
+        const user = usercredential.user;
+         navigate('/login');
+      })
+     
+    }catch(error){
+      console.error('Registration Error:',error.code,error.message);
+      setError('failed to register. please check your details.')
+    }
   };
 
   return (
     <div class="center">
       <div className="auth">
         <h1>{registerheading}</h1>
-        {error && <div className="auth__error">{error}</div>}
-        <form onSubmit={register} name="registration_form">
+        <form onSubmit={handleRegister} name="registration_form">
           <InputComp
             label={emaillabel}
+            className='input-comp'
             placeholder={emailplaceholder}
             type="email"
             value={email}
@@ -65,6 +60,7 @@ const Register = (name) => {
 
           <InputComp
             label={passwordlabel}
+            className='input-comp'
             placeholder={passwordplaceholder}
             type="password"
             value={password}
@@ -72,20 +68,12 @@ const Register = (name) => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <InputComp
-            label={confirmpasswordlabel}
-            value={confirmPassword}
-            placeholder={confirmpasswordplaceholder}
-            type="text"
-            required
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-
-          <Button type="submit" />
+          <Button type="submit">{register}</Button>
+          {error && <p>{error}</p>}
         </form>
         <span>
-          Already have an account?
-          {/* <Link to='/login'>login</Link> */}
+         {account}
+          <Link to='/login'>{login}</Link>
         </span>
       </div>
     </div>

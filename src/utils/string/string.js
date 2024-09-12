@@ -3,6 +3,8 @@ const String ={
 emailplaceholder:'Enter your Email',
 emaillabel: 'Email',
 registerheading :'Register Here',
+register:'Register',
+account:' Already have an account?',
 passwordlabel:'Password',
 passwordplaceholder:'enter your password',
 login:'Login',

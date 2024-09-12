@@ -1,5 +1,5 @@
 import {useState,useEffect} from 'react';
-import { auth } from './firebase';
+// import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {Register,ForgotPassword,Ecommerce,Login} from './pages';
@@ -10,8 +10,8 @@ function App() {
   return (
     <Router>
     <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Register />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
       <Route path="/ecommerce" element={<Ecommerce />} />
     </Routes>
