@@ -1,0 +1,28 @@
+const String ={
+emailplaceholder:'Enter your Email',
+emaillabel: 'Email',
+registerheading :'Create an account',
+register:'Register',
+account:' Already have an account?',
+passwordlabel:'Password',
+passwordplaceholder:'enter your password',
+login:'Login',
+logout:'Logout',
+confirmpasswordlabel:'Confirm Password',
+confirmpasswordplaceholder:'enter Confirm password',
+resetPassword:' Reset Password',
+loginHeading : 'Welcome Back',
+loginHeading2: 'Enter your email and password to access your account',
+profileHeading: 'Profile',
+profileEmailVerify:'Email verified',
+profileSignOut: 'Sign Out',
+forgotpassword:'Forgot Password?',
+productheading:'Products',
+loginpageheading:'Get Everything you Want',
+loginpageheading2:'you can get everything you want if you work hard, trust the process, and stick to the plan',
+registerheading1:'Sign In to Enhance Your Shopping Experience',
+registerparagraph:'Log in to your account for a seamless shopping journey, personalized recommendations, and exclusive offers tailored just for you. Access your saved items, order history, and enjoy a faster checkout process!',
+registeradmin:'Register as Admin',
+}
+
+export default String
